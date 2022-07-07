@@ -14,5 +14,10 @@ return [
     */
 
     "hello gus" => 'HELLO GUS',
-    "welcome" => 'WELCOME'
+    "welcome" => 'WELCOME',
+    "offer name required"=>'offer name required',
+    "offer price required"=>'offer price required in engilish',
+    "offer details required"=> 'offer details required in engilish',
+    "offer name must be unique"=>'offer name must be unique in eng',
+    "offer price must be numeric"=> 'offer price must be numeric in eng'
 ];

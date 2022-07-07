@@ -113,3 +113,26 @@ Auth::routes(['verify'=> true]); // [verify => true] عشان ما اخليه ي
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified'); // يلي داخل لازم يكون aut + verfied by email
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// to manuiplate model offer #45 lession
+Route::get('fillable','CrudController@getOffers');
+
+
+// this group to manuiplate offer insert , update , delete #46 lession
+// add language selector for your route like this 
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+             'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function(){
+   
+
+Route::group(['prefix' => 'offers'],function(){
+
+    Route::get('store','CrudController@store');
+
+
+    Route::get('create','CrudController@create');
+
+    Route::post('save','CrudController@save')-> name('offers.save');
+
+});
+
+});
